@@ -34,5 +34,11 @@ services:
       context: 'webserver'
     ports:
       - '8080:80'
+  poc-deno:
+    image: "poc-deno"
+    build:
+      context: 'poc-deno'
+    ports:
+      - '8080:8080'
 volumes:
   postgres-data:
