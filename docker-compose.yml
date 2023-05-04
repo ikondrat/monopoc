@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      PGUSER: local # Not the same as POSTGRES_USER, needed otherwise ROOT is assumed
+      POSTGRES_USER: local
+      POSTGRES_PASSWORD: local
+      POSTGRES_DB: local
+    volumes:
+      - ./postgres-data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+  frontend:
+    image: "poc-frontend"
+    build:
+      context: 'frontend'
+      args:
+        BUILD_TYPE:
+        NPM_TOKEN:
+    ports:
+    - "3000:3000"
+  backend:
+    image: "poc-backend"
+    build:
+      context: 'backend'
+      args:
+        BUILD_TYPE:
+        NPM_TOKEN:
+    ports:
+      - '3001:3000'
+volumes:
+  postgres-data:
