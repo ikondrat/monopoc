@@ -20,19 +20,19 @@ services:
     image: "poc-frontend"
     build:
       context: 'frontend'
-      args:
-        BUILD_TYPE:
-        NPM_TOKEN:
     ports:
     - "3000:3000"
   backend:
     image: "poc-backend"
     build:
       context: 'backend'
-      args:
-        BUILD_TYPE:
-        NPM_TOKEN:
     ports:
       - '3001:3000'
+  webserver:
+    image: "poc-webserver"
+    build:
+      context: 'webserver'
+    ports:
+      - '8080:80'
 volumes:
   postgres-data:
