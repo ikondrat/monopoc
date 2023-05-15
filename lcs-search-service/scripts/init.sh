@@ -8,7 +8,7 @@ hasura metadata apply
 hasura migrate apply --all-databases
 
 # seed data
-hasura seed apply --database-name localdb
+hasura seed apply --database-name lcs-search
 
 # update metadata to reflect changes
 hasura metadata reload
