@@ -12,10 +12,10 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
-  data-layer:
-    image: "data-layer"
+  backend:
+    image: "backend"
     build:
-      context: 'data-layer'
+      context: 'backend'
     ports:
     - "8080:8080"
     depends_on:

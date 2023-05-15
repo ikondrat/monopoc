@@ -8,7 +8,7 @@
 
 ## run
 - Run the services `docker compose up -d`
-- Apply repository migrations/seedings with `cd ./repo/ && scripts/init.sh && cd ..`
+- Apply repository migrations/seedings with `cd ./backend/ && scripts/init.sh && cd ..`
 
 ### be app layer
 - open the console `http://localhost:8080/console` and play with api on `http://localhost:8080/console/api/api-explorer`
