@@ -1,5 +1,13 @@
 version: '3.6'
 services:
+  data-feed:
+    image: "data-feed"
+    build:
+      context: 'data-feed'
+    volumes:
+      - ./data-feed:/app
+    environment:
+      NODE_ENV: development
   frontend:
     image: "frontend"
     build:
