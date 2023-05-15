@@ -1,5 +1,17 @@
 version: '3.6'
 services:
+  frontend:
+    image: "frontend"
+    build:
+      context: 'frontend'
+      target: runner
+    volumes:
+      - ./frontend:/app
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
   data-layer:
     image: "data-layer"
     build:
