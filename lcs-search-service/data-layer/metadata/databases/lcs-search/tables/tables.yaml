@@ -1,0 +1,3 @@
+- "!include public_addresses.yaml"
+- "!include public_places.yaml"
+- "!include public_working_hours.yaml"
