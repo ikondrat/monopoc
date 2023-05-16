@@ -1,8 +1,9 @@
-import express from 'express';
+import getPlaceByURL from './getPlaceByURL.js';
 
-const app = express();
 
-app.listen(4000, () => {
-  // define here feeders
-  console.log(`data feeder running on port 4000`);
-});
+console.log(`data feeder running`);
+
+// getPlaceByURL()
+
+
+console.log(`data feeder running: done`);
