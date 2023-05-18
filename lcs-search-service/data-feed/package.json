@@ -4,7 +4,7 @@
   "description": "Responsible to feed data to be layer",
   "main": "src/index.ts",
   "scripts": {
-    "start": "npx ts-node src/index.ts",
+    "start": "dotenv -- npx ts-node src/index.ts",
     "test": "jest"
   },
   "author": "",
@@ -19,6 +19,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "dotenv-cli": "^7.2.1"
   }
 }

@@ -8,4 +8,5 @@ RUN npm i
 
 COPY . .
 
+ENV GRAPHQL_ENDPOINT=$GRAPHQL_ENDPOINT
 CMD [ "npm", "start" ]

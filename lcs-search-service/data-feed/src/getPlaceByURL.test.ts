@@ -3,7 +3,7 @@ import mockedPlace from './mockedPlace.json';
 import getPlaceByURL from './getPlaceByURL';
 
 describe('getPlaceByURL', () => {
-  const url = 'https://storage.googleapis.com/coding-session-rest-api/GXvPAor1ifNfpF0U5PTG0w'
+  const url = 'http://storage.googleapis.com/coding-session-rest-api/GXvPAor1ifNfpF0U5PTG0w'
 
   it('should call axios with the correct url', async () => { 
     const mock = jest.spyOn(axios, 'get').mockResolvedValue(mockedPlace)
@@ -45,4 +45,6 @@ describe('getPlaceByURL', () => {
 }
 `);
   })
+
+  
 })

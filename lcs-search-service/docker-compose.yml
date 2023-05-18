@@ -4,10 +4,13 @@ services:
     image: "data-feed"
     build:
       context: 'data-feed'
+    depends_on:
+    - "backend"
     volumes:
       - ./data-feed:/app
     environment:
       NODE_ENV: development
+      GRAPHQL_ENDPOINT: http://backend:8080/v1/graphql
   frontend:
     image: "frontend"
     build:
@@ -25,7 +28,7 @@ services:
     build:
       context: 'backend'
     ports:
-    - "8080:8080"
+    - "0.0.0.0:8080:8080"
     depends_on:
     - "postgres"
     restart: always
