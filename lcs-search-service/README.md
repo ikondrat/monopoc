@@ -7,8 +7,9 @@
 
 
 ## run
-- Run the services `docker compose up -d`
+- Run the services `docker compose up backend`
 - Apply repository migrations/seedings with `cd ./backend/ && scripts/init.sh && cd ..`
+- Run frontend `docker compose up backend`
 
 ### be app layer
 - open the console `http://localhost:8080/console` and play with api on `http://localhost:8080/console/api/api-explorer`

@@ -12,11 +12,14 @@ services:
       NODE_ENV: development
       GRAPHQL_ENDPOINT: http://backend:8080/v1/graphql
       SOURCE_API_URL:
+      BACKEND_API_HOST: http://backend:8080
   frontend:
     image: "frontend"
     build:
       context: 'frontend'
       target: runner
+    depends_on:
+    - "data-feed"
     volumes:
       - ./frontend:/app
     command: npm run dev
