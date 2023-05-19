@@ -13,7 +13,7 @@ export function Place({ name, address, uuid }: PlaceProps) {
       <Card>
         <CardHeader title={name} />
         <CardContent>
-          <Typography variant='body1'>{address}</Typography>
+          <Typography variant="body1">{address}</Typography>
         </CardContent>
       </Card>
     </Link>
