@@ -9,6 +9,10 @@ Few answers why we can't use third party provider right away:
 - third party api has unnormalised structure and quite possible can be changed which will lead to broken service
 - data-feed allows to use other data providers as well with normalised structure, allows as well make updates by demand on regular basis
 
+Results:
+- super fast be layer (~5ms) to handle request
+- nextjs is the slowest part here, probably switching to rest fetching can increase performance
+
 ## prerequisites
 * [The Hasura CLI installed](https://hasura.io/docs/latest/hasura-cli/install-hasura-cli/)
 * [docker installed](https://docs.docker.com/get-docker/)
