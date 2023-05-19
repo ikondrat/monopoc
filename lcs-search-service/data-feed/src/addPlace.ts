@@ -25,16 +25,11 @@ const query = gql`
 
 export default async function addPlace(place: Place) {
   const client = new GraphQLClient(process.env.GRAPHQL_ENDPOINT)
-  try {
-    const response = await client.request(query, {
-      address: place.address,
-      working_hours: place.working_hours,
-      name: place.name,
-      phone_number: place.phone_number,
-      website: place.website
-    })
-    console.log('RESPONSE FROM GRAPHQL-REQUEST API CALL', response)
-  } catch (error) {
-    console.error(error)
-  }
+  await client.request(query, {
+    address: place.address,
+    working_hours: place.working_hours,
+    name: place.name,
+    phone_number: place.phone_number,
+    website: place.website
+  })
 }

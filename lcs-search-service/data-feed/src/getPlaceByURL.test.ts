@@ -6,7 +6,7 @@ describe('getPlaceByURL', () => {
   const url = 'http://storage.googleapis.com/coding-session-rest-api/GXvPAor1ifNfpF0U5PTG0w'
 
   it('should call axios with the correct url', async () => { 
-    const mock = jest.spyOn(axios, 'get').mockResolvedValue(mockedPlace)
+    const mock = jest.spyOn(axios, 'get').mockResolvedValue({ data: mockedPlace})
     await getPlaceByURL(url)
 
     expect(mock).toHaveBeenCalledWith(url);

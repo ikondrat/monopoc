@@ -1,17 +1,19 @@
 import addPlace from './addPlace';
 import getPlaceByURL from './getPlaceByURL';
 
-async function main() {
-    ["GXvPAor1ifNfpF0U5PTG0w", "ohGSnJtMIC5nPfYRi_HTAg"].forEach(async (objId) => {
-        const place = await getPlaceByURL(`${process.env.SOURCE_API_URL}/${objId}`)
+export async function main() {
+    const apiURL = process.env.SOURCE_API_URL
+    const ids: string[] = ["GXvPAor1ifNfpF0U5PTG0w", "ohGSnJtMIC5nPfYRi_HTAg"]
+    ids.forEach(async (objId: string) => {
+        const place = await getPlaceByURL(`${apiURL}/${objId}`)
         if (place) {
             addPlace(place)
-            console.log(`data feeder imported: ${place}`);
         }
     })
 }
 
+if (require.main === module) {
+    main()
+}
 
-console.log(`data feeder running`);
-main()
-console.log(`data feeder running: done`);
+

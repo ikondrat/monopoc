@@ -12,5 +12,6 @@ export default {
   // A map from regular expressions to paths to transformers
   transform: {
     '^.+\\.(t|j)sx?$': '@swc/jest'
-  }
+  },
+  setupFiles: ["<rootDir>/jest.setup.ts"]
 }
