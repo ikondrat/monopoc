@@ -24,6 +24,8 @@ const query = gql`
 `
 
 export default async function addPlace(place: Place) {
+  if (!process.env.GRAPHQL_ENDPOINT) { throw new Error('GRAPHQL_ENDPOINT is not defined')}
+  
   const client = new GraphQLClient(process.env.GRAPHQL_ENDPOINT)
   await client.request(query, {
     address: place.address,
