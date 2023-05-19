@@ -18,7 +18,7 @@
 Was done by hasura cli dba tools
 1. `hasura metadata export` created actual schema metadata for data layer
 2. `hasura migrate create "init" --from-server` created tables structure migration
-3. `hasura seed create tables_seed --from-table places --from-table addresses --from-table working_hours` generated seed data
+3. `hasura seed create tables_seed --from-table places` generated seed data
 
 ### fe app
 
