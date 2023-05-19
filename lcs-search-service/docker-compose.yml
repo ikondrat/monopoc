@@ -11,6 +11,7 @@ services:
     environment:
       NODE_ENV: development
       GRAPHQL_ENDPOINT: http://backend:8080/v1/graphql
+      SOURCE_API_URL:
   frontend:
     image: "frontend"
     build:
