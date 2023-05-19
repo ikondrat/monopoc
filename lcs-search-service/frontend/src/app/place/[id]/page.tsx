@@ -1,6 +1,6 @@
 'use client'
 import { gql, useQuery } from '@apollo/client'
-import { Container, Grid, Link, Typography } from '@mui/material'
+import { Box, Container, Grid, Link, Typography } from '@mui/material'
 import WorkingHours from './WorkingHours'
 
 type PageParams = {
@@ -32,36 +32,45 @@ export default function Page(props: PageParams) {
   const place = data?.places[0]
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <Grid container spacing={2} direction="column">
-            <Grid item>
-              <Typography variant="h6">Address</Typography>
-              <Typography variant="body1" sx={{ pl: 2 }}>
-                {place?.address}
-              </Typography>
-            </Grid>
-            {place?.website && (
-              <Grid item>
-                <Typography variant="h6">Website</Typography>
-                <Typography variant="body1" sx={{ pl: 2 }}>
-                  <Link href={place?.website}>{place?.website}</Link>
-                </Typography>
-              </Grid>
-            )}
-            {place.phone_number && (
-              <Grid item>
-                <Typography variant="h6">Phone</Typography>
-                <Typography variant="body1" sx={{ pl: 2 }}>
-                  <Link href={`tel:${place?.phone_number}`}>{place?.phone_number}</Link>
-                </Typography>
-              </Grid>
-            )}
-          </Grid>
+      <Grid container spacing={8} direction="column">
+        <Grid item>
+          <Typography variant="h1">{place?.name}</Typography>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6">Openning hours</Typography>
-          <WorkingHours working_hours={place?.working_hours.days} />
+        <Grid item>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <Grid container spacing={2} direction="column">
+                <Grid item>
+                  <Typography variant="h6">Address</Typography>
+                  <Typography variant="body1" sx={{ pl: 2 }}>
+                    {place?.address}
+                  </Typography>
+                </Grid>
+                {place?.website && (
+                  <Grid item>
+                    <Typography variant="h6">Website</Typography>
+                    <Typography variant="body1" sx={{ pl: 2 }}>
+                      <Link href={place?.website}>{place?.website}</Link>
+                    </Typography>
+                  </Grid>
+                )}
+                {place.phone_number && (
+                  <Grid item>
+                    <Typography variant="h6">Phone</Typography>
+                    <Typography variant="body1" sx={{ pl: 2 }}>
+                      <Link href={`tel:${place?.phone_number}`}>{place?.phone_number}</Link>
+                    </Typography>
+                  </Grid>
+                )}
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Typography variant="h6">Openning hours</Typography>
+              <Box sx={{ pl: 2 }}>
+                <WorkingHours working_hours={place?.working_hours.days} />
+              </Box>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Container>

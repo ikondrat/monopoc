@@ -1,8 +1,8 @@
 import { Grid, Typography } from '@mui/material'
-import { WorkingHours } from './types'
+import { WorkingHoursType } from './types'
 const days: string[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
-export const groupByWorkingHours = (working_hours: WorkingHours): [[(typeof days)[number][], string[]]] => {
+export const groupByWorkingHours = (working_hours: WorkingHoursType): [[(typeof days)[number][], string[]]] => {
   const items = [] as any
   let prevKey: string = ''
   days.forEach((day: any) => {
@@ -21,18 +21,20 @@ export const groupByWorkingHours = (working_hours: WorkingHours): [[(typeof days
   return items
 }
 
-export default function WorkingHours({ working_hours }: { working_hours: WorkingHours }) {
+export default function WorkingHours({ working_hours }: { working_hours: WorkingHoursType }) {
   const items = groupByWorkingHours(working_hours)
   return (
     <>
-      {items.map((item, index) => (
-        <Grid container key={index} spacing={2}>
+      {items.map(item => (
+        <Grid container key={JSON.stringify(item[0])} spacing={2}>
           <Grid item xs={6}>
-            {item[0].length === 1 && item[0][0]}
-            {item[0].length > 1 && [item[0][0], item[0][item[0].length - 1]].join(' - ')}
+            <Typography variant="body1">
+              {item[0].length === 1 && item[0][0]}
+              {item[0].length > 1 && [item[0][0], item[0][item[0].length - 1]].join(' - ')}
+            </Typography>
           </Grid>
           <Grid item xs={6}>
-            {!item[1].length && 'Closed'}
+            {!item[1].length && <Typography variant="body1">Closed</Typography>}
             {item[1].length > 1 &&
               item[1].map(hours => (
                 <Typography variant="body1" key={hours}>

@@ -1,6 +1,6 @@
 type WorkingHoursRange = { end: string; start: string; type: 'OPEN' }
 
-export type WorkingHours = {
+export type WorkingHoursType = {
   monday?: Array<WorkingHoursRange>
   tuesday?: Array<WorkingHoursRange>
   wednesday?: Array<WorkingHoursRange>
