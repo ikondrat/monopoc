@@ -60,6 +60,7 @@ export default function Page(props: PageParams) {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h6">Openning hours</Typography>
+          {JSON.stringify(place?.working_hours.days, null, 2)}
         </Grid>
       </Grid>
     </Container>
