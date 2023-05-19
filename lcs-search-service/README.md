@@ -1,5 +1,7 @@
 # Search service
+This is example of search service based on feeding the data from external source (e.g. third party api)
 
+![hasura-data-layer-architecture](/lcs-architecture.drawio.png)
 
 ## prerequisites
 * [The Hasura CLI installed](https://hasura.io/docs/latest/hasura-cli/install-hasura-cli/)
@@ -9,11 +11,12 @@
 ## run
 - Run the services `docker compose up backend`
 - Apply repository migrations/seedings with `cd ./backend/ && scripts/init.sh && cd ..`
-- Run frontend `docker compose up backend`
+- Run frontend `docker compose up frontend`
 
 ### be app layer
-- open the console `http://localhost:8080/console` and play with api on `http://localhost:8080/console/api/api-explorer`
+Implemented with using Hasura, it is convinient instrument for fast prototyping and high load prooved by me
 
+- open the console `http://localhost:8080/console` and play with api on `http://localhost:8080/console/api/api-explorer`
 
 #### Initial setup
 Was done by hasura cli dba tools
@@ -21,9 +24,13 @@ Was done by hasura cli dba tools
 2. `hasura migrate create "init" --from-server` created tables structure migration
 3. `hasura seed create tables_seed --from-table places` generated seed data
 
-### fe app
-
-
-## Read more
+#### Read more
 https://hasura.io/docs/latest/index/
+
+### fe app layer
+Implemented with using Nextjs + React + Matetial UI library
+ 
+- open the console `http://localhost:3000` and type something to start selecting
+
+
 
