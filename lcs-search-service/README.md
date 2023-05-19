@@ -3,6 +3,12 @@ This is example of search service based on feeding the data from external source
 
 ![hasura-data-layer-architecture](/lcs-architecture.drawio.png)
 
+Few answers why we can't use third party provider right away:
+- direct parsing will affect service time, it will not be possible to guarantee performance in this case
+- there is not guarantee what you will have data, third party api can be unavailble
+- third party api has unnormalised structure and quite possible can be changed which will lead to broken service
+- data-feed allows to use other data providers as well with normalised structure, allows as well make updates by demand on regular basis
+
 ## prerequisites
 * [The Hasura CLI installed](https://hasura.io/docs/latest/hasura-cli/install-hasura-cli/)
 * [docker installed](https://docs.docker.com/get-docker/)
