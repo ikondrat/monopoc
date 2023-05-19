@@ -1,5 +1,5 @@
 'use client'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { ApolloProvider } from '@apollo/client'
 import { Search } from './components/Search'
 import { Container, Grid, TextField, ThemeProvider, Typography, createTheme } from '@mui/material'
 import { useState } from 'react'
