@@ -1,7 +1,7 @@
 # Search service
 This is example of search service based on feeding the data from external source (e.g. third party api)
 
-![hasura-data-layer-architecture](/lcs-architecture.drawio.png)
+![hasura-data-layer-architecture](/lcs-search-service/lcs-architecture.drawio.png)
 
 Few answers why we can't use third party provider right away:
 - direct parsing will affect service time, it will not be possible to guarantee performance in this case
