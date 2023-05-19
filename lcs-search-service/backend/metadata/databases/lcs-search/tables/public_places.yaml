@@ -1,7 +1,3 @@
 table:
   name: places
   schema: public
-object_relationships:
-  - name: places_working_hour
-    using:
-      foreign_key_constraint_on: working_hours_id

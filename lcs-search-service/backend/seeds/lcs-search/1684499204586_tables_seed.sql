@@ -1,0 +1,2 @@
+SET check_function_bodies = false;
+INSERT INTO public.places (uuid, website, phone_number, name, address, working_hours) VALUES ('cd96e8b4-0d62-4066-b784-c150f83153a7', 'adasdasd', 'asdasd', 'asdasd', 'asdasd', '{"friday":["09:00-12:00","13:00-17:00"],"monday":["09:00-12:00","13:00-17:00"],"saturday":["09:00-12:00","13:00-17:00"],"sunday":["09:00-12:00","13:00-17:00"],"thursday":["09:00-12:00","13:00-17:00"],"tuesday":["09:00-12:00","13:00-17:00"],"wednesday":["09:00-12:00","13:00-17:00"]}');

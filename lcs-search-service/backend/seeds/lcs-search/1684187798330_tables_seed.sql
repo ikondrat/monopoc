@@ -1,5 +1,0 @@
-SET check_function_bodies = false;
-INSERT INTO public.working_hours (uuid, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES ('35313a7e-e398-4711-a75a-0db71812a050', '09:00-12:00, 13:00-18:00', '09:00-12:00, 13:00-18:00', '09:00-12:00, 13:00-18:00', '09:00-12:00, 13:00-18:00', '09:00-12:00, 13:00-18:00', NULL, NULL);
-INSERT INTO public.working_hours (uuid, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES ('838a0768-c422-4631-879e-6098089ab8be', 'AS', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO public.places (uuid, website, phone_number, address, working_hours_id, name) VALUES ('5d531201-6549-448d-b32d-d8f5f713c207', 'restaurant-ilgrappolo.ch', '+41444817060', 'Salamanderweg 19, 8134, Adliswil', '35313a7e-e398-4711-a75a-0db71812a050', 'Il Grappolo');
-INSERT INTO public.places (uuid, website, phone_number, address, working_hours_id, name) VALUES ('34f060af-43a1-431c-86f8-e3422864c5d3', 'ASas', 'asas', 'Salamanderweg 1, 8134, Adliswil', '838a0768-c422-4631-879e-6098089ab8be', 'asaS');
