@@ -1,5 +1,0 @@
-query searchByNameOrAddress($search: String!) {
-  places(where: { _or: [{ address: { _like: $search } }, { name: { _like: $search } }] }) {
-    name
-  }
-}
