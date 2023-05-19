@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client'
 
 const SEARCH_PLACES = gql`
   query searchByNameOrAddress($search: String!) {
-    places(where: { _or: [{ address: { _like: $search } }, { name: { _like: $search } }] }) {
+    places(distinct_on: name, where: { _or: [{ address: { _like: $search } }, { name: { _like: $search } }] }) {
       name
     }
   }
