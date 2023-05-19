@@ -16,7 +16,6 @@ export function Search({ value }: { value: string }) {
     variables: { search: `%${value}%` }
   })
 
-  if (!value) return <div>Type text to see results</div>
   return (
     <div>
       {data?.places.length && <Places places={data?.places} />}

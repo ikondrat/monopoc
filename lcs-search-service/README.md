@@ -15,9 +15,11 @@ Few answers why we can't use third party provider right away:
 
 
 ## run
-- Run the services `docker compose up backend`
+- Run first BE part `docker-compose up backend -d`
 - Apply repository migrations/seedings with `cd ./backend/ && scripts/init.sh && cd ..`
-- Run frontend `docker compose up frontend`
+- Run FE part  `docker compose up frontend -d`
+- BE part available on http://localhost:8080
+- FE part should be available http://localhost:3000
 
 ### be app layer
 Implemented with using Hasura, it is convinient instrument for fast prototyping and high load prooved by me
