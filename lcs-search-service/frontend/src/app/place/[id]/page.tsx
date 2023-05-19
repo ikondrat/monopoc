@@ -1,6 +1,7 @@
 'use client'
 import { gql, useQuery } from '@apollo/client'
 import { Container, Grid, Link, Typography } from '@mui/material'
+import WorkingHours from './WorkingHours'
 
 type PageParams = {
   params: {
@@ -60,7 +61,7 @@ export default function Page(props: PageParams) {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h6">Openning hours</Typography>
-          {JSON.stringify(place?.working_hours.days, null, 2)}
+          <WorkingHours working_hours={place?.working_hours.days} />
         </Grid>
       </Grid>
     </Container>

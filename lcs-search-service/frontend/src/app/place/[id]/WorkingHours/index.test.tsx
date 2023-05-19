@@ -15,6 +15,7 @@ describe('groupByWorkingHours', () => {
         ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
         ['11:30-14:00', '18:30-22:00']
       ],
+      [['saturday'], []],
       [['sunday'], ['09:30-10:00', '11:30-14:00']]
     ]
 
@@ -34,6 +35,7 @@ describe('groupByWorkingHours', () => {
       [['monday'], ['09:30-16:00']],
       [['tuesday', 'wednesday'], ['09:30-14:00']],
       [['thursday', 'friday'], ['09:30-15:00']],
+      [['saturday'], []],
       [['sunday'], ['09:30-14:00']]
     ]
     expect(result).toEqual(expected)
