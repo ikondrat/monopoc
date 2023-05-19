@@ -12,35 +12,81 @@ describe('getPlaceByURL', () => {
     expect(mock).toHaveBeenCalledWith(url);
   })
 
-  it.skip('should return place data', async () => { 
-    jest.spyOn(axios, 'get').mockResolvedValue(mockedPlace)
+  it('should return place data', async () => { 
+    jest.spyOn(axios, 'get').mockResolvedValue({ data: mockedPlace})
     const result = await getPlaceByURL(url)
     
     expect(result).toMatchInlineSnapshot(`
 {
   "address": "Stampfenbachstrasse 38, 8006 Zürich",
   "name": "Casa Ferlin",
+  "phone_number": "+41443623509",
+  "website": "http://www.casaferlin.ch",
   "working_hours": {
-    "friday": [
-      "11:30-14:00",
-      "18:30-22:00",
-    ],
-    "monday": [
-      "11:30-14:00",
-      "18:30-22:00",
-    ],
-    "thursday": [
-      "11:30-14:00",
-      "18:30-22:00",
-    ],
-    "tuesday": [
-      "11:30-14:00",
-      "18:30-22:00",
-    ],
-    "wednesday": [
-      "11:30-14:00",
-      "18:30-22:00",
-    ],
+    "closed_on_holidays": true,
+    "days": {
+      "friday": [
+        {
+          "end": "14:00",
+          "start": "11:30",
+          "type": "OPEN",
+        },
+        {
+          "end": "22:00",
+          "start": "18:30",
+          "type": "OPEN",
+        },
+      ],
+      "monday": [
+        {
+          "end": "14:00",
+          "start": "11:30",
+          "type": "OPEN",
+        },
+        {
+          "end": "22:00",
+          "start": "18:30",
+          "type": "OPEN",
+        },
+      ],
+      "thursday": [
+        {
+          "end": "14:00",
+          "start": "11:30",
+          "type": "OPEN",
+        },
+        {
+          "end": "22:00",
+          "start": "18:30",
+          "type": "OPEN",
+        },
+      ],
+      "tuesday": [
+        {
+          "end": "14:00",
+          "start": "11:30",
+          "type": "OPEN",
+        },
+        {
+          "end": "22:00",
+          "start": "18:30",
+          "type": "OPEN",
+        },
+      ],
+      "wednesday": [
+        {
+          "end": "14:00",
+          "start": "11:30",
+          "type": "OPEN",
+        },
+        {
+          "end": "22:00",
+          "start": "18:30",
+          "type": "OPEN",
+        },
+      ],
+    },
+    "open_by_arrangement": false,
   },
 }
 `);

@@ -1,4 +1,5 @@
 import addPlace from './addPlace';
+import { bestPlaces } from './bestPlaces';
 import getPlaceByURL from './getPlaceByURL';
 
 export async function main() {
@@ -10,6 +11,9 @@ export async function main() {
             addPlace(place)
         }
     })
+
+    // add some more places
+    bestPlaces.forEach((place) => addPlace(place))
 }
 
 if (require.main === module) {
