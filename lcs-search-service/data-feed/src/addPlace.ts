@@ -1,23 +1,40 @@
-import { Place } from './types';
-import useGraphql from './useGraphql';
+import { GraphQLClient, gql } from 'graphql-request'
+import { Place } from './types'
+
+const query = gql`
+  mutation InsertPlaces(
+    $address: String!
+    $name: String!
+    $working_hours: json
+    $phone_number: String
+    $website: String
+  ) {
+    insert_places(
+      objects: {
+        address: $address
+        working_hours: $working_hours
+        name: $name
+        phone_number: $phone_number
+        website: $website
+      }
+    ) {
+      affected_rows
+    }
+  }
+`
 
 export default async function addPlace(place: Place) {
+  const client = new GraphQLClient(process.env.GRAPHQL_ENDPOINT)
   try {
-    const working_hours: Record<string, string> = {}
-    Object.entries(place.working_hours).map(([key, value]) => {
-      working_hours[key] = value.join(',');
-    });
-    const hours = JSON.stringify(working_hours).replace(/"/g, '\\"');
-    await useGraphql(`
-      mutation InsertPlaces {
-        insert_places(objects: {address: "${place.address}", working_hours: ${hours}, name: "${place.name}", phone_number: "${place.phone_number}", website: "${place.website}"}) {
-          returning {
-            name
-          }
-        }
-      }
-    `)
+    const response = await client.request(query, {
+      address: place.address,
+      working_hours: place.working_hours,
+      name: place.name,
+      phone_number: place.phone_number,
+      website: place.website
+    })
+    console.log('RESPONSE FROM GRAPHQL-REQUEST API CALL', response)
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }

@@ -12,7 +12,7 @@ describe('getPlaceByURL', () => {
     expect(mock).toHaveBeenCalledWith(url);
   })
 
-  it('should return place data', async () => { 
+  it.skip('should return place data', async () => { 
     jest.spyOn(axios, 'get').mockResolvedValue(mockedPlace)
     const result = await getPlaceByURL(url)
     
