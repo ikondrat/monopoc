@@ -18,18 +18,22 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
 
 # print(os.getenv('OPENAI_API_KEY'))
 text = f"""
-У попа была собака, он ее любил. Она съела кусок мяса — он ее убил. В землю закопал, надпись написал
-"""
-
-text2 = f"""
-Эта ночь далась нелегко, у корабля постоянно отказывался работать компенсатор нулевого поля и Гарин буквально руками держал корабль от вываливания из гиперпрыжка.
-Выходить из гиперпрыжка в неизвестном секторе было чревато. И ходило много историй о найденных 
-пропавших кораблях оказавшихся в центре планет или звезд при форс мажорных выходах.
+You should express what you want a model to do by \ 
+providing instructions that are as clear and \ 
+specific as you can possibly make them. \ 
+This will guide the model towards the desired output, \ 
+and reduce the chances of receiving irrelevant \ 
+or incorrect responses. Don't confuse writing a \ 
+clear prompt with writing a short prompt. \ 
+In many cases, longer prompts provide more clarity \ 
+and context for the model, which can lead to \ 
+more detailed and relevant outputs.
 """
 
 prompt = f"""
-Придумай что было дальше на 10000 знаков.
-```{text2}```
+Summarize the text delimited by triple backticks \ 
+into a single sentence.
+```{text}```
 """
 response = get_completion(prompt)
 print(response)
