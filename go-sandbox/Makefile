@@ -5,7 +5,8 @@ fmt:
 .PHONY:fmt
 
 lint: fmt
-	golint ./...
+	# golint ./...
+	golangci-lint run
 .PHONY:lint
 
 vet: lint
